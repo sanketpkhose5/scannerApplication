@@ -15,12 +15,10 @@ function QRPage() {
     <div style={{ padding: "20px" }}>
       <h1>{certificate.name}</h1>
 
-      <p>
-        Registration Number: {certificate.registrationNumber}
-      </p>
+      <p>Registration Number: {certificate.registrationNumber}</p>
 
       <QRCodeCanvas
-        value={`http://localhost:5173/certificate/${id}`}
+        value={`https://scanner-application-silk.vercel.app/certificate/${certificate.id}`}
         size={220}
       />
       <p style={{ marginTop: "20px" }}>Verification Link:</p>
