@@ -7,7 +7,7 @@ import { certificateData } from "../../data/certificateData";
 function CertificatePage() {
   const { id } = useParams();
 
-  const data = certificateData.find((item) => item.id === id);
+  const data = certificateData[id];
 
   if (!data) {
     return (
