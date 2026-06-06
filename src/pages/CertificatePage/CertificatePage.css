@@ -1,0 +1,32 @@
+.certificate-card {
+  width: 90%;
+  margin: 30px auto;
+
+  background: white;
+
+  border-radius: 6px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+}
+
+.certificate-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.certificate-card td {
+  border: 1px solid #d8d8d8;
+
+  padding: 16px;
+
+  font-size: 16px;
+
+  vertical-align: top;
+}
+
+.certificate-card td:first-child {
+  width: 35%;
+  font-weight: 500;
+}
