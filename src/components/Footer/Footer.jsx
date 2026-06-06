@@ -1,7 +1,13 @@
-export default function Footer() {
+import "./Footer.css";
+
+function Footer() {
   return (
-    <footer className="footer">
-      {/* Add your footer content here */}
+    <footer className="gov-footer">
+      <h1 style={{ color: "white" }}>
+        TEST FOOTER
+      </h1>
     </footer>
-  )
+  );
 }
+
+export default Footer;
