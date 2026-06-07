@@ -1,0 +1,54 @@
+/* ═══════════════════════════════════════════════
+   CertificatePage — spinner loading screen
+   ═══════════════════════════════════════════════ */
+
+/* Full page white background while loading */
+.cert-spinner-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper positions ring and logo on top of each other */
+.cert-spinner-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The spinning arc ring */
+.cert-spinner-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+
+  /* Transparent ring with one colored arc — matches screenshot */
+  border: 6px solid #e0e0e0;
+  border-top-color: #b0b0b0;
+  border-right-color: #b0b0b0;
+
+  animation: cert-spin 1s linear infinite;
+}
+
+/* The Registrar General logo in the center */
+.cert-spinner-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes cert-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
