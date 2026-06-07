@@ -1,89 +1,91 @@
 /* ═══════════════════════════════════════════════
-   CertificateCard — outer card + inner table
+   CertificateCard — exact match to government portal
+   Extracted from their actual Bootstrap/Angular styles
    ═══════════════════════════════════════════════ */
 
-/* 
-  Slightly off-white page background.
-  This is what makes the card shadow visible —
-  pure white shadow on pure white = invisible.
-  #f5f5f5 is barely noticeable but makes shadow work.
-*/
+/* Page background — their body bg is #fff, but we need
+   slight contrast for shadow. Use #f8f9fa (their --bs-gray-100) */
 .certificate-page-bg {
-  background: #f5f5f5;
+  background: #f8f9fa;
   min-height: 100vh;
   padding: 20px 0 48px;
 }
 
-/* ── Outer elevated card ──────────────────────── */
+/* ── Outer card container ─────────────────────────
+   Their portal wraps the table in a Bootstrap card.
+   Bootstrap card defaults: white bg, border, border-radius.
+   Their --bs-box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15)
+──────────────────────────────────────────────── */
 .certificate-card {
-  width: 88%;
+  width: 90%;
   margin: 0 auto;
 
-  background: #ffffff;
-  border-radius: 8px;
+  background: #ffffff;                           /* --bs-card-bg = --bs-body-bg = #fff */
+  border: 1px solid rgba(0, 0, 0, 0.175);        /* --bs-border-color-translucent */
+  border-radius: 0.375rem;                       /* --bs-border-radius */
 
-  /* Subtle border + shadow combo — shadow needs contrast to show */
-  border: 1px solid #e0e0e0;
-  box-shadow:
-    0 2px 4px  rgba(0, 0, 0, 0.08),
-    0 6px 16px rgba(0, 0, 0, 0.10);
+  /* Their --bs-box-shadow */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 
-  /* Gap between card edge and inner table */
-  padding: 16px;
+  /* Bootstrap card inner spacing */
+  padding: 1rem;                                 /* --bs-card-spacer-x / spacer-y */
   box-sizing: border-box;
 }
 
-/* ── Inner data table ────────────────────────── */
+/* ── Inner data table ─────────────────────────────
+   Extracted from their .table.table-bordered styles exactly
+──────────────────────────────────────────────── */
 .certificate-card table {
+  /* Their exact font declaration */
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
+
   width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-
-  /* Fix font — browser was falling back to Times New Roman */
-  font-family: Arial, sans-serif;
-}
-
-/* Both cells */
-.certificate-card td {
-  border: 1px solid #d0d0d0;
-  padding: 12px 10px;
-
-  font-family: Arial, sans-serif;   /* explicit — overrides Times New Roman */
-  font-size: 14px;
-  font-weight: 400;
-  color: #2d3748;
-
+  margin-bottom: 0;                              /* remove default 1rem inside card */
+  color: #212529;                                /* --bs-body-color */
   vertical-align: top;
-  line-height: 1.55;
-
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  border-color: #dee2e6;                         /* --bs-border-color */
+  border-collapse: collapse;
+  word-wrap: break-word;
+  table-layout: fixed;                           /* keeps columns stable on all screens */
 }
 
-/* Label column — 40% */
+/* Their .table-bordered td */
+.certificate-card td {
+  padding: 0.5rem 0.5rem;                        /* Bootstrap table default cell padding */
+  border: 1px solid #dee2e6;                     /* --bs-border-color exactly */
+  color: #212529;
+  vertical-align: top;
+  overflow-wrap: anywhere;                       /* prevents registration number overflow */
+}
+
+/* Label column — 38% matching their layout */
 .certificate-card td:first-child {
-  width: 40%;
+  width: 38%;
 }
 
-/* Value column — 60% */
+/* Value column */
 .certificate-card td:last-child {
-  width: 60%;
+  width: 62%;
 }
 
-/* All rows pure white */
+/* All rows white */
 .certificate-card tr {
-  background: #ffffff;
+  background-color: transparent;                 /* --bs-table-bg: transparent */
 }
 
 /* ── Small phones ────────────────────────────── */
-@media (max-width: 360px) {
+@media (max-width: 400px) {
   .certificate-card {
-    width: 94%;
-    padding: 10px;
+    width: 95%;
+    padding: 0.75rem;
+  }
+
+  .certificate-card table {
+    font-size: 13px;
   }
 
   .certificate-card td {
-    font-size: 13px;
-    padding: 10px 8px;
+    padding: 0.5rem 0.4rem;
   }
 }
