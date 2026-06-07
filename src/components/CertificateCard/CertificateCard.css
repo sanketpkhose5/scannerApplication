@@ -1,49 +1,66 @@
 /* ═══════════════════════════════════════════════
-   CertificateCard — exact match to government portal
-   Source: div.card inline style + computed styles
+   CertificateCard — pixel-perfect match
+   Measurements from inspector:
+   - section.content = 412px wide
+   - div.col-md-6.mt-5 = 364px wide
+   - table = 312.4px wide
+   - Page bg = #f8f9fa (white — teal was DevTools hover)
    ═══════════════════════════════════════════════ */
 
-/* Page background — their body is #fff but card needs contrast */
+/* ── Page background ──────────────────────────
+   From image 5: dark teal background exactly
+   like the real government portal page bg
+──────────────────────────────────────────────── */
 .certificate-page-bg {
-  background: #f8f9fa;        /* --bs-gray-100 from their token list */
+  background: #f8f9fa;    /* white page — #f8f9fa gives just enough contrast for shadow */
   min-height: 100vh;
-  padding: 20px 0 48px;
+
+  /* Their .mt-5: margin-top: 3rem */
+  padding: 3rem 0 48px;
+
+  /* Their container: centers content */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* ── Outer card ───────────────────────────────────
-   Copied EXACTLY from:
-   style="padding: 25px; box-shadow: 4px -5px 13px -1px grey;"
-   + Bootstrap .card computed:
-     border: 1px solid rgba(0,0,0,.125)
-     border-radius: .25rem
-     background-color: #fff
+/* ── col-md-6 wrapper ─────────────────────────
+   Their div.col-md-6.mt-5 = 364px on 412px screen
+   That's 364/412 = 88.3% of viewport width
+──────────────────────────────────────────────── */
+.certificate-card-wrapper {
+  width: 88.3%;
+  max-width: 600px;   /* Bootstrap col-md-6 max on desktop */
+  margin-bottom: 3rem; /* gap between card and footer */
+}
+
+/* ── Outer card ───────────────────────────────
+   Exact inline style from their HTML:
+   padding: 25px; box-shadow: 4px -5px 13px -1px grey;
+   + Bootstrap .card:
+   border: 1px solid rgba(0,0,0,.125)
+   border-radius: .25rem
 ──────────────────────────────────────────────── */
 .certificate-card {
-  width: 90%;
-  margin: 0 auto;
-
-  /* Their exact values — no changes */
+  width: 100%;
+  background-color: #ffffff;
   padding: 25px;
   box-shadow: 4px -5px 13px -1px grey;
-
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 
-  background-color: #ffffff;
-  box-sizing: border-box;
-
-  /* From their .card computed */
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
+  box-sizing: border-box;
 }
 
-/* ── Inner data table ─────────────────────────────
-   Their exact font from computed styles:
-   font: 400 14px/20px Roboto, Helvetica Neue, sans-serif
-   border-color: #dee2e6
+/* ── Inner table ──────────────────────────────
+   table = 312.4px inside 364px card
+   (364 - 25px padding × 2 = 314px ≈ 312.4 ✓)
+   Their exact font: 400 14px/20px Roboto
 ──────────────────────────────────────────────── */
 .certificate-card table {
   font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
@@ -55,41 +72,61 @@
   vertical-align: top;
   border-collapse: collapse;
   word-wrap: break-word;
-  table-layout: fixed;        /* prevents registration number overflow */
+  table-layout: fixed;
 }
 
-/* Their .table-bordered td */
 .certificate-card td {
-  border: 1px solid #dee2e6;  /* their --bs-border-color exactly */
-  padding: 0.5rem;             /* Bootstrap table default */
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
   vertical-align: top;
   color: #212529;
-  overflow-wrap: anywhere;    /* breaks long codes like B20259903470049005 */
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
-/* Label column */
+/* Column ratio from inspector: 97.54 / 311.6 */
 .certificate-card td:first-child {
-  width: 38%;
+  width: 31.3%;
 }
 
-/* Value column */
 .certificate-card td:last-child {
-  width: 62%;
+  width: 68.7%;
 }
 
-/* All rows transparent like Bootstrap default */
 .certificate-card tr {
   background-color: transparent;
 }
 
-/* ── Small phones ────────────────────────────── */
-@media (max-width: 400px) {
+/* ── Tablet 576px+ ────────────────────────── */
+@media (min-width: 576px) {
+  .certificate-card-wrapper {
+    width: 80%;
+  }
+}
+
+/* ── Desktop 768px+ ───────────────────────── */
+@media (min-width: 768px) {
+  .certificate-card-wrapper {
+    width: 50%;       /* Bootstrap col-md-6 = 50% on md+ */
+    max-width: 600px;
+  }
+
+  .certificate-page-bg {
+    padding: 3rem 0 60px;
+  }
+}
+
+/* ── Very small phones < 360px ───────────── */
+@media (max-width: 360px) {
   .certificate-card {
-    width: 95%;
-    padding: 16px;      /* slightly less padding on very small screens */
+    padding: 16px;
   }
 
   .certificate-card table {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .certificate-card td {
+    padding: 6px 5px;
   }
 }

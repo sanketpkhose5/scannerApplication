@@ -5,11 +5,8 @@ import CertificateCard from "../../components/CertificateCard/CertificateCard";
 import { useParams } from "react-router-dom";
 import { certificateData } from "../../data/certificateData";
 
-import "./CertificatePage.css";
-
 function CertificatePage() {
   const { id } = useParams();
-
   const data = certificateData[id];
 
   if (!data) {
@@ -17,8 +14,12 @@ function CertificatePage() {
       <>
         <Header />
         <div className="certificate-page-bg">
-          <div className="certificate-not-found">
-            <p>Certificate Not Found</p>
+          <div className="certificate-card-wrapper">
+            <div className="certificate-card">
+              <p style={{ textAlign: "center", color: "#666", margin: 0 }}>
+                Certificate Not Found
+              </p>
+            </div>
           </div>
         </div>
         <Footer />
@@ -29,12 +30,11 @@ function CertificatePage() {
   return (
     <>
       <Header />
-
-      {/* Gray page background — card floats on top of this */}
       <div className="certificate-page-bg">
-        <CertificateCard data={data} />
+        <div className="certificate-card-wrapper">
+          <CertificateCard data={data} />
+        </div>
       </div>
-
       <Footer />
     </>
   );
