@@ -17,7 +17,6 @@ function CertificatePage() {
 
   const data = certificateData[id];
 
-  // Show spinner for 1.5 seconds then reveal certificate
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -29,13 +28,35 @@ function CertificatePage() {
     return (
       <div className="cert-spinner-page">
         <div className="cert-spinner-wrapper">
-          {/* Spinning arc around the logo */}
-          <div className="cert-spinner-ring" />
+
+          {/* SVG spinner — exact match to real site
+              cx=50 cy=50 r=20 stroke-width=2 stroke=#ddd */}
+          <svg
+            className="cert-spinner-svg"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              className="path"
+              cx="50"
+              cy="50"
+              r="20"
+              fill="none"
+              strokeWidth="2"
+              strokeMiterlimit="10"
+            />
+          </svg>
+
+          {/* Registrar General logo — 150×150px */}
           <img
             src={registrarLogo}
-            alt="Registrar General India"
+            alt="CRS"
             className="cert-spinner-logo"
+            width="150"
+            height="150"
+            loading="lazy"
           />
+
         </div>
       </div>
     );

@@ -1,8 +1,12 @@
 /* ═══════════════════════════════════════════════
-   CertificatePage — spinner loading screen
+   CertificatePage — spinner
+   Exact values from inspector:
+   - logo: 150×150px
+   - circle: cx=50 cy=50 r=20, stroke-width=2
+   - stroke: #ddd, stroke-linecap: round
+   - animation: dash 1.5s ease-in-out infinite
    ═══════════════════════════════════════════════ */
 
-/* Full page white background while loading */
 .cert-spinner-page {
   width: 100%;
   min-height: 100vh;
@@ -12,43 +16,57 @@
   justify-content: center;
 }
 
-/* Wrapper positions ring and logo on top of each other */
 .cert-spinner-wrapper {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* The spinning arc ring */
-.cert-spinner-ring {
+/* SVG spinner sits on top of logo */
+.cert-spinner-svg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-
-  /* Transparent ring with one colored arc — matches screenshot */
-  border: 6px solid #e0e0e0;
-  border-top-color: #b0b0b0;
-  border-right-color: #b0b0b0;
-
-  animation: cert-spin 1s linear infinite;
+  width: 150px;
+  height: 150px;
+  animation: rotate 2s linear infinite;
 }
 
-/* The Registrar General logo in the center */
+.cert-spinner-svg .path {
+  stroke: #ddd;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+/* Logo sits centered inside the SVG ring */
 .cert-spinner-logo {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   position: relative;
   z-index: 1;
 }
 
-@keyframes cert-spin {
-  0%   { transform: rotate(0deg); }
+/* Rotate the whole SVG continuously */
+@keyframes rotate {
   100% { transform: rotate(360deg); }
+}
+
+/* Dash animation — arc grows and shrinks like real site */
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
