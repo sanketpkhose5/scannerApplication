@@ -1,3 +1,70 @@
+/* ═══════════════════════════════════════════════
+   CertificateCard — matches target UI exactly
+   ═══════════════════════════════════════════════ */
+
+/* Page background — wraps the card */
+.certificate-page-bg {
+  background: #f0f0f0;
+  min-height: 100vh;
+  padding: 24px 0 40px;
+}
+
+/* The white floating card */
 .certificate-card {
-  /* Certificate card styles */
+  width: 88%;
+  margin: 0 auto;
+
+  background: #ffffff;
+
+  /* Rounded corners matching the screenshot */
+  border-radius: 10px;
+
+  /* Drop shadow — visible in screenshots as soft gray around card */
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.12);
+
+  overflow: hidden;
+}
+
+/* Table fills the card */
+.certificate-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Every cell */
+.certificate-card td {
+  /* Light gray border — exactly what's in the screenshots */
+  border: 1px solid #d0d0d0;
+
+  /* Generous padding matching the large cell size in screenshots */
+  padding: 16px 14px;
+
+  /* Large font — matches the big readable text in screenshots */
+  font-size: 16px;
+  font-weight: 400;
+  color: #1a1a1a;
+
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+/* Label column (left) — slightly narrower, normal weight */
+.certificate-card td:first-child {
+  width: 38%;
+  font-weight: 400; /* NOT bold — matches screenshot exactly */
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+/* Value column (right) */
+.certificate-card td:last-child {
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+/* No alternating colors — all rows pure white */
+.certificate-card tr {
+  background: #ffffff;
 }

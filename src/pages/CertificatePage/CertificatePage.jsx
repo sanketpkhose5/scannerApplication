@@ -1,9 +1,11 @@
 import Header from "../../components/Header/Header";
-import CertificateCard from "../../components/CertificateCard/CertificateCard";
 import Footer from "../../components/Footer/Footer";
+import CertificateCard from "../../components/CertificateCard/CertificateCard";
 
 import { useParams } from "react-router-dom";
 import { certificateData } from "../../data/certificateData";
+
+import "./CertificatePage.css";
 
 function CertificatePage() {
   const { id } = useParams();
@@ -14,9 +16,12 @@ function CertificatePage() {
     return (
       <>
         <Header />
-        <h2 style={{ textAlign: "center", marginTop: "40px" }}>
-          Certificate Not Found
-        </h2>
+        <div className="certificate-page-bg">
+          <div className="certificate-not-found">
+            <p>Certificate Not Found</p>
+          </div>
+        </div>
+        <Footer />
       </>
     );
   }
@@ -24,7 +29,12 @@ function CertificatePage() {
   return (
     <>
       <Header />
-      <CertificateCard data={data} />
+
+      {/* Gray page background — card floats on top of this */}
+      <div className="certificate-page-bg">
+        <CertificateCard data={data} />
+      </div>
+
       <Footer />
     </>
   );

@@ -1,32 +1,29 @@
-.certificate-card {
-  width: 90%;
-  margin: 30px auto;
+/* ═══════════════════════════════════════════════
+   CertificatePage layout
+   ═══════════════════════════════════════════════ */
 
-  background: white;
-
-  border-radius: 6px;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-
-  overflow: hidden;
+/* Light gray background the card floats on */
+.certificate-page-bg {
+  background: #f0f0f0;
+  min-height: calc(100vh - 60px); /* 60px = header height approx */
+  padding: 28px 0 48px;
 }
 
-.certificate-card table {
-  width: 100%;
-  border-collapse: collapse;
+/* Not found state */
+.certificate-not-found {
+  width: 88%;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 40px 20px;
+  text-align: center;
 }
 
-.certificate-card td {
-  border: 1px solid #d8d8d8;
-
-  padding: 16px;
-
-  font-size: 16px;
-
-  vertical-align: top;
-}
-
-.certificate-card td:first-child {
-  width: 35%;
-  font-weight: 500;
+.certificate-not-found p {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
 }
