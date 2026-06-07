@@ -13,7 +13,7 @@
 ──────────────────────────────────────────────── */
 .certificate-page-bg {
   background: #f8f9fa;    /* white page — #f8f9fa gives just enough contrast for shadow */
-  min-height: 100vh;
+  min-height: unset;
 
   /* Their .mt-5: margin-top: 3rem */
   padding: 3rem 0 48px;
