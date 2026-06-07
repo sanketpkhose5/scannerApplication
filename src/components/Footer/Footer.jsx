@@ -5,7 +5,7 @@ import logoIndiagov from "../../assets/images/logo-indiagov.jpg";
 import logoPmindia from "../../assets/images/logo-pmindia.png";
 import logoMakeinindia from "../../assets/images/logo-makeinindia.png";
 import logoDigitalindia from "../../assets/images/logo-digitalindia.png";
-import logoMygov from "../../assets/images/logo-mygov.jpg";
+import logoMygov from "../../assets/images/logo-mygov.jpeg";
 
 function Footer() {
   const policyLinks = [
