@@ -1,65 +1,73 @@
 /* ═══════════════════════════════════════════════
    CertificateCard — exact match to government portal
-   Extracted from their actual Bootstrap/Angular styles
+   Source: div.card inline style + computed styles
    ═══════════════════════════════════════════════ */
 
-/* Page background — their body bg is #fff, but we need
-   slight contrast for shadow. Use #f8f9fa (their --bs-gray-100) */
+/* Page background — their body is #fff but card needs contrast */
 .certificate-page-bg {
-  background: #f8f9fa;
+  background: #f8f9fa;        /* --bs-gray-100 from their token list */
   min-height: 100vh;
   padding: 20px 0 48px;
 }
 
-/* ── Outer card container ─────────────────────────
-   Their portal wraps the table in a Bootstrap card.
-   Bootstrap card defaults: white bg, border, border-radius.
-   Their --bs-box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15)
+/* ── Outer card ───────────────────────────────────
+   Copied EXACTLY from:
+   style="padding: 25px; box-shadow: 4px -5px 13px -1px grey;"
+   + Bootstrap .card computed:
+     border: 1px solid rgba(0,0,0,.125)
+     border-radius: .25rem
+     background-color: #fff
 ──────────────────────────────────────────────── */
 .certificate-card {
   width: 90%;
   margin: 0 auto;
 
-  background: #ffffff;                           /* --bs-card-bg = --bs-body-bg = #fff */
-  border: 1px solid rgba(0, 0, 0, 0.175);        /* --bs-border-color-translucent */
-  border-radius: 0.375rem;                       /* --bs-border-radius */
+  /* Their exact values — no changes */
+  padding: 25px;
+  box-shadow: 4px -5px 13px -1px grey;
 
-  /* Their --bs-box-shadow */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 
-  /* Bootstrap card inner spacing */
-  padding: 1rem;                                 /* --bs-card-spacer-x / spacer-y */
+  background-color: #ffffff;
   box-sizing: border-box;
+
+  /* From their .card computed */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
 }
 
 /* ── Inner data table ─────────────────────────────
-   Extracted from their .table.table-bordered styles exactly
+   Their exact font from computed styles:
+   font: 400 14px/20px Roboto, Helvetica Neue, sans-serif
+   border-color: #dee2e6
 ──────────────────────────────────────────────── */
 .certificate-card table {
-  /* Their exact font declaration */
   font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
   letter-spacing: normal;
 
   width: 100%;
-  margin-bottom: 0;                              /* remove default 1rem inside card */
-  color: #212529;                                /* --bs-body-color */
+  margin-bottom: 0;
+  color: #212529;
   vertical-align: top;
-  border-color: #dee2e6;                         /* --bs-border-color */
   border-collapse: collapse;
   word-wrap: break-word;
-  table-layout: fixed;                           /* keeps columns stable on all screens */
+  table-layout: fixed;        /* prevents registration number overflow */
 }
 
 /* Their .table-bordered td */
 .certificate-card td {
-  padding: 0.5rem 0.5rem;                        /* Bootstrap table default cell padding */
-  border: 1px solid #dee2e6;                     /* --bs-border-color exactly */
-  color: #212529;
+  border: 1px solid #dee2e6;  /* their --bs-border-color exactly */
+  padding: 0.5rem;             /* Bootstrap table default */
   vertical-align: top;
-  overflow-wrap: anywhere;                       /* prevents registration number overflow */
+  color: #212529;
+  overflow-wrap: anywhere;    /* breaks long codes like B20259903470049005 */
 }
 
-/* Label column — 38% matching their layout */
+/* Label column */
 .certificate-card td:first-child {
   width: 38%;
 }
@@ -69,23 +77,19 @@
   width: 62%;
 }
 
-/* All rows white */
+/* All rows transparent like Bootstrap default */
 .certificate-card tr {
-  background-color: transparent;                 /* --bs-table-bg: transparent */
+  background-color: transparent;
 }
 
 /* ── Small phones ────────────────────────────── */
 @media (max-width: 400px) {
   .certificate-card {
     width: 95%;
-    padding: 0.75rem;
+    padding: 16px;      /* slightly less padding on very small screens */
   }
 
   .certificate-card table {
     font-size: 13px;
-  }
-
-  .certificate-card td {
-    padding: 0.5rem 0.4rem;
   }
 }
