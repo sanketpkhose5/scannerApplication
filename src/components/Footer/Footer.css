@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   Gov Footer — matches crb.gov.in style exactly
+   Gov Footer
    ═══════════════════════════════════════════════ */
 
 .gov-footer {
@@ -10,262 +10,38 @@
   box-sizing: border-box;
 }
 
-/* ── data.gov.in ──────────────────────────────── */
-.footer-datagov {
-  margin-bottom: 20px;
-}
-
-.datagov-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.datagov-text {
-  font-size: 28px;
-  font-weight: 800;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  letter-spacing: -0.5px;
-}
-
-.datagov-badge {
-  background: #f6c700;
-  color: #1a1a1a;
-  font-size: 16px;
-  font-weight: 900;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-}
-
-.datagov-sub {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 11px;
-  margin: 4px 0 0;
-  letter-spacing: 0.2px;
-}
-
-/* ── Two-column row ───────────────────────────── */
-.footer-row-2 {
+/* ── Logo grid ────────────────────────────────── */
+.footer-logo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
-/* ── Shared tile base ─────────────────────────── */
-.footer-tile {
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 62px;
-  padding: 10px 8px;
-}
-
-.footer-tile-full {
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 62px;
-  padding: 10px 16px;
-  margin-bottom: 8px;
-  gap: 12px;
-}
-
-/* ── india.gov.in tile ───────────────────────── */
-.tile-india {
+/* Each tile is a white box */
+.footer-logo-tile {
   background: #ffffff;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 8px 12px;
-}
-
-.india-tagline {
-  font-size: 9px;
-  color: #555;
-  margin: 0 0 2px;
-  letter-spacing: 0.2px;
-}
-
-.india-brand {
-  font-size: 19px;
-  font-weight: 900;
-  margin: 0;
-  line-height: 1;
-  font-family: Arial, sans-serif;
-}
-
-.india-blue  { color: #c71585; }   /* magenta-ish for "ind" */
-.india-plain { color: #c71585; }   /* ".gov.in" same */
-
-.india-dot-one {
-  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: #f6c700;
-  color: #1a1a1a;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
-  font-weight: 900;
-  vertical-align: middle;
-  margin: 0 1px;
+  min-height: 62px;
+  padding: 8px;
 }
 
-.india-green { color: #1a8a2e; font-size: 19px; font-weight: 900; }
-
-/* ── PM INDIA tile ────────────────────────────── */
-.tile-pm {
+/* PM India tile has dark background */
+.footer-logo-tile--dark {
   background: #111111;
-  gap: 8px;
 }
 
-.pm-emblem { font-size: 20px; }
-.pm-flag   { font-size: 16px; }
-
-.pm-text {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-family: Arial, sans-serif;
-}
-
-/* ── MAKE IN INDIA tile ───────────────────────── */
-.tile-makein {
-  background: #ffffff;
-}
-
-.makein-lion {
-  font-size: 32px;
-}
-
-.makein-text {
-  font-size: 16px;
-  font-weight: 900;
-  color: #1a1a1a;
-  letter-spacing: 2px;
-  font-family: Arial, sans-serif;
-}
-
-/* ── Digital India tile ───────────────────────── */
-.tile-digital {
-  background: #ffffff;
-}
-
-.digital-icon {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-}
-
-/* Tricolor swirl — approximated with a ring + colors */
-.digital-swirl {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: conic-gradient(
-    #FF9933 0deg 120deg,
-    #ffffff 120deg 240deg,
-    #138808 240deg 360deg
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.digital-i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  font-weight: 900;
-  color: #1a4a6b;
-  font-family: Arial, sans-serif;
-  z-index: 1;
-  background: #fff;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.digital-text-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1px;
-}
-
-.digital-brand {
-  font-size: 15px;
-  font-weight: 800;
-  color: #1a4a6b;
-  font-family: Arial, sans-serif;
-}
-
-.digital-sub {
-  font-size: 10px;
-  color: #666;
-}
-
-/* ── myGov tile ───────────────────────────────── */
-.tile-mygov {
-  background: #ffffff;
-  gap: 14px;
-}
-
-.mygov-emblem {
-  font-size: 28px;
-}
-
-.mygov-text-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-}
-
-.mygov-brand {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  line-height: 1;
-}
-
-.mygov-my {
-  font-size: 18px;
-  font-weight: 900;
-  color: #1a1a1a;
-  font-family: Arial, sans-serif;
-}
-
-.mygov-gov {
-  font-size: 26px;
-  font-weight: 900;
-  color: #e8b400;
-  font-family: Arial, sans-serif;
-  letter-spacing: 1px;
-}
-
-.mygov-hindi {
-  font-size: 11px;
-  color: #555;
-  font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+/* Logo images fill their tile proportionally */
+.footer-logo-img {
+  width: 100%;
+  height: 100%;
+  max-height: 56px;
+  object-fit: contain;  /* keeps aspect ratio, no cropping */
+  display: block;
 }
 
 /* ── Footer links ─────────────────────────────── */
