@@ -1,70 +1,88 @@
 /* ═══════════════════════════════════════════════
-   CertificateCard — matches target UI exactly
+   CertificateCard — matches government portal UI
    ═══════════════════════════════════════════════ */
 
-/* Page background — wraps the card */
+/* 
+  Page background is WHITE — the gray you see in
+  screenshots is just the card's shadow on white.
+*/
 .certificate-page-bg {
-  background: #f0f0f0;
+  background: #ffffff;
   min-height: 100vh;
-  padding: 24px 0 40px;
+  padding: 24px 0 48px;
 }
 
-/* The white floating card */
+/* White card with shadow — floats on white page */
 .certificate-card {
   width: 88%;
   margin: 0 auto;
 
   background: #ffffff;
 
-  /* Rounded corners matching the screenshot */
-  border-radius: 10px;
+  border-radius: 8px;
 
-  /* Drop shadow — visible in screenshots as soft gray around card */
+  /*
+    This shadow creates the "gray area" effect you see —
+    it's not a gray background, it's the shadow on white.
+    Matches image 4 (desktop) and image 2 (mobile) exactly.
+  */
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.08),
-    0 8px 24px rgba(0, 0, 0, 0.12);
+    0 1px 3px rgba(0, 0, 0, 0.10),
+    0 4px 16px rgba(0, 0, 0, 0.14),
+    0 12px 32px rgba(0, 0, 0, 0.08);
 
   overflow: hidden;
 }
 
-/* Table fills the card */
+/* Table fills the full card width */
 .certificate-card table {
   width: 100%;
   border-collapse: collapse;
 }
 
-/* Every cell */
+/* Every cell — both label and value */
 .certificate-card td {
-  /* Light gray border — exactly what's in the screenshots */
-  border: 1px solid #d0d0d0;
+  border: 1px solid #d8d8d8;
 
-  /* Generous padding matching the large cell size in screenshots */
-  padding: 16px 14px;
+  padding: 14px 12px;
 
-  /* Large font — matches the big readable text in screenshots */
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  color: #1a1a1a;
+
+  /* Dark navy-gray text matching the actual gov site */
+  color: #2d3748;
 
   vertical-align: top;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-/* Label column (left) — slightly narrower, normal weight */
+/* Label column (left) 
+   Fixed pixel width so it never squeezes too tight.
+   "Registration Number" wrapping to 2 lines is FINE 
+   — the real gov site does the same (see image 4). 
+*/
 .certificate-card td:first-child {
-  width: 38%;
-  font-weight: 400; /* NOT bold — matches screenshot exactly */
-  color: #1a1a1a;
-  word-break: break-word;
+  width: 130px;      /* fixed px — not % — so it's consistent on all screens */
+  min-width: 130px;
+  max-width: 130px;
+
+  color: #2d3748;
+
+  /* Only break at spaces, never mid-word */
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
-/* Value column (right) */
+/* Value column (right) — long values like addresses wrap naturally */
 .certificate-card td:last-child {
-  color: #1a1a1a;
-  word-break: break-word;
+  color: #2d3748;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
-/* No alternating colors — all rows pure white */
+/* All rows are pure white — no alternating colors */
 .certificate-card tr {
   background: #ffffff;
 }
