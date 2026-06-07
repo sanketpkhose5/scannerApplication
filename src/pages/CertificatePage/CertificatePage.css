@@ -1,10 +1,5 @@
 /* ═══════════════════════════════════════════════
    CertificatePage — spinner
-   Exact values from inspector:
-   - logo: 150×150px
-   - circle: cx=50 cy=50 r=20, stroke-width=2
-   - stroke: #ddd, stroke-linecap: round
-   - animation: dash 1.5s ease-in-out infinite
    ═══════════════════════════════════════════════ */
 
 .cert-spinner-page {
@@ -16,57 +11,37 @@
   justify-content: center;
 }
 
+/* Stack logo and SVG on top of each other */
 .cert-spinner-wrapper {
   position: relative;
   width: 150px;
   height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* SVG spinner sits on top of logo */
+/* Logo sits in center */
+.cert-spinner-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* SVG ring sits on top, covers full 150x150, rotates */
 .cert-spinner-svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 150px;
   height: 150px;
-  animation: rotate 2s linear infinite;
+  animation: cert-rotate 1.5s linear infinite;
+  z-index: 2;
 }
 
-.cert-spinner-svg .path {
-  stroke: #ddd;
-  stroke-linecap: round;
-  animation: dash 1.5s ease-in-out infinite;
-}
-
-/* Logo sits centered inside the SVG ring */
-.cert-spinner-logo {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-}
-
-/* Rotate the whole SVG continuously */
-@keyframes rotate {
+@keyframes cert-rotate {
+  0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-/* Dash animation — arc grows and shrinks like real site */
-@keyframes dash {
-  0% {
-    stroke-dasharray: 1, 150;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -124;
-  }
 }
