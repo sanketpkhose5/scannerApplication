@@ -1,45 +1,51 @@
 /* ═══════════════════════════════════════════════
-   CertificateCard — responsive, government style
+   CertificateCard — outer card + inner table
    ═══════════════════════════════════════════════ */
 
-/* White page background — gray effect is from card shadow only */
+/* White page background */
 .certificate-page-bg {
   background: #ffffff;
   min-height: 100vh;
   padding: 20px 0 48px;
 }
 
-/* ── Outer elevated card container ── */
+/* ── Outer elevated card ──────────────────────── */
+/*
+  This is the white container with shadow.
+  The table sits INSIDE this with its own borders.
+  Card has padding so the table doesn't touch the edges.
+*/
 .certificate-card {
-  width: 90%;
+  width: 88%;
   margin: 0 auto;
+
   background: #ffffff;
   border-radius: 8px;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.10),
-    0 6px 20px rgba(0, 0, 0, 0.13);
-  overflow: hidden;
 
-  /* Inner table padding/spacing */
-  padding: 12px;
+  /* Visible shadow — creates elevation from white page */
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 4px 8px  rgba(0, 0, 0, 0.10),
+    0 8px 24px rgba(0, 0, 0, 0.10);
+
+  /* Gap between card edge and inner table — matches image 1 */
+  padding: 16px;
   box-sizing: border-box;
 }
 
-/* ── Inner data table ── */
+/* ── Inner data table ────────────────────────── */
+/*
+  Table has its own border system.
+  table-layout: fixed keeps columns at set widths
+  regardless of content length.
+*/
 .certificate-card table {
   width: 100%;
   border-collapse: collapse;
-
-  /*
-    CRITICAL FIX:
-    table-layout: fixed means column widths are respected
-    and content cannot blow out the table width.
-    Columns split exactly at the % you set.
-  */
   table-layout: fixed;
 }
 
-/* Every cell */
+/* Both cells share base styles */
 .certificate-card td {
   border: 1px solid #d0d0d0;
   padding: 12px 10px;
@@ -49,36 +55,31 @@
   vertical-align: top;
   line-height: 1.55;
 
-  /*
-    CRITICAL FIX for overflow:
-    overflow-wrap: anywhere allows breaking ANYWHERE
-    including inside long strings like "B20259903470049005"
-    that have no natural break point.
-  */
+  /* Prevents ANY content from overflowing the column */
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* Label column — 40% width, wraps naturally at spaces */
+/* Label column — 40% */
 .certificate-card td:first-child {
   width: 40%;
 }
 
-/* Value column — 60% width, breaks long strings if needed */
+/* Value column — 60% */
 .certificate-card td:last-child {
   width: 60%;
 }
 
-/* All rows pure white */
+/* All rows pure white, no alternating color */
 .certificate-card tr {
   background: #ffffff;
 }
 
-/* ── Responsive: very small phones (< 360px) ── */
+/* ── Small phones ────────────────────────────── */
 @media (max-width: 360px) {
   .certificate-card {
     width: 94%;
-    padding: 8px;
+    padding: 10px;
   }
 
   .certificate-card td {
