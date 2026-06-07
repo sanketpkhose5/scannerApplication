@@ -2,19 +2,19 @@
    CertificateCard — outer card + inner table
    ═══════════════════════════════════════════════ */
 
-/* White page background */
+/* 
+  Slightly off-white page background.
+  This is what makes the card shadow visible —
+  pure white shadow on pure white = invisible.
+  #f5f5f5 is barely noticeable but makes shadow work.
+*/
 .certificate-page-bg {
-  background: #ffffff;
+  background: #f5f5f5;
   min-height: 100vh;
   padding: 20px 0 48px;
 }
 
 /* ── Outer elevated card ──────────────────────── */
-/*
-  This is the white container with shadow.
-  The table sits INSIDE this with its own borders.
-  Card has padding so the table doesn't touch the edges.
-*/
 .certificate-card {
   width: 88%;
   margin: 0 auto;
@@ -22,40 +22,40 @@
   background: #ffffff;
   border-radius: 8px;
 
-  /* Visible shadow — creates elevation from white page */
+  /* Subtle border + shadow combo — shadow needs contrast to show */
+  border: 1px solid #e0e0e0;
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 4px 8px  rgba(0, 0, 0, 0.10),
-    0 8px 24px rgba(0, 0, 0, 0.10);
+    0 2px 4px  rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.10);
 
-  /* Gap between card edge and inner table — matches image 1 */
+  /* Gap between card edge and inner table */
   padding: 16px;
   box-sizing: border-box;
 }
 
 /* ── Inner data table ────────────────────────── */
-/*
-  Table has its own border system.
-  table-layout: fixed keeps columns at set widths
-  regardless of content length.
-*/
 .certificate-card table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+
+  /* Fix font — browser was falling back to Times New Roman */
+  font-family: Arial, sans-serif;
 }
 
-/* Both cells share base styles */
+/* Both cells */
 .certificate-card td {
   border: 1px solid #d0d0d0;
   padding: 12px 10px;
+
+  font-family: Arial, sans-serif;   /* explicit — overrides Times New Roman */
   font-size: 14px;
   font-weight: 400;
   color: #2d3748;
+
   vertical-align: top;
   line-height: 1.55;
 
-  /* Prevents ANY content from overflowing the column */
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -70,7 +70,7 @@
   width: 60%;
 }
 
-/* All rows pure white, no alternating color */
+/* All rows pure white */
 .certificate-card tr {
   background: #ffffff;
 }
