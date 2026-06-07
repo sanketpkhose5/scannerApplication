@@ -2,7 +2,10 @@ import "./CertificateCard.css";
 
 function CertificateCard({ data }) {
   return (
+    /* Outer elevated card container */
     <div className="certificate-card">
+
+      {/* Inner bordered data table */}
       <table>
         <tbody>
           <tr>
@@ -56,6 +59,7 @@ function CertificateCard({ data }) {
           </tr>
         </tbody>
       </table>
+
     </div>
   );
 }

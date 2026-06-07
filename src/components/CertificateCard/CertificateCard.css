@@ -1,88 +1,88 @@
 /* ═══════════════════════════════════════════════
-   CertificateCard — matches government portal UI
+   CertificateCard — responsive, government style
    ═══════════════════════════════════════════════ */
 
-/* 
-  Page background is WHITE — the gray you see in
-  screenshots is just the card's shadow on white.
-*/
+/* White page background — gray effect is from card shadow only */
 .certificate-page-bg {
   background: #ffffff;
   min-height: 100vh;
-  padding: 24px 0 48px;
+  padding: 20px 0 48px;
 }
 
-/* White card with shadow — floats on white page */
+/* ── Outer elevated card container ── */
 .certificate-card {
-  width: 88%;
+  width: 90%;
   margin: 0 auto;
-
   background: #ffffff;
-
   border-radius: 8px;
-
-  /*
-    This shadow creates the "gray area" effect you see —
-    it's not a gray background, it's the shadow on white.
-    Matches image 4 (desktop) and image 2 (mobile) exactly.
-  */
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.10),
-    0 4px 16px rgba(0, 0, 0, 0.14),
-    0 12px 32px rgba(0, 0, 0, 0.08);
-
+    0 2px 4px rgba(0, 0, 0, 0.10),
+    0 6px 20px rgba(0, 0, 0, 0.13);
   overflow: hidden;
+
+  /* Inner table padding/spacing */
+  padding: 12px;
+  box-sizing: border-box;
 }
 
-/* Table fills the full card width */
+/* ── Inner data table ── */
 .certificate-card table {
   width: 100%;
   border-collapse: collapse;
+
+  /*
+    CRITICAL FIX:
+    table-layout: fixed means column widths are respected
+    and content cannot blow out the table width.
+    Columns split exactly at the % you set.
+  */
+  table-layout: fixed;
 }
 
-/* Every cell — both label and value */
+/* Every cell */
 .certificate-card td {
-  border: 1px solid #d8d8d8;
-
-  padding: 14px 12px;
-
-  font-size: 15px;
+  border: 1px solid #d0d0d0;
+  padding: 12px 10px;
+  font-size: 14px;
   font-weight: 400;
-
-  /* Dark navy-gray text matching the actual gov site */
   color: #2d3748;
-
   vertical-align: top;
   line-height: 1.55;
+
+  /*
+    CRITICAL FIX for overflow:
+    overflow-wrap: anywhere allows breaking ANYWHERE
+    including inside long strings like "B20259903470049005"
+    that have no natural break point.
+  */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
-/* Label column (left) 
-   Fixed pixel width so it never squeezes too tight.
-   "Registration Number" wrapping to 2 lines is FINE 
-   — the real gov site does the same (see image 4). 
-*/
+/* Label column — 40% width, wraps naturally at spaces */
 .certificate-card td:first-child {
-  width: 130px;      /* fixed px — not % — so it's consistent on all screens */
-  min-width: 130px;
-  max-width: 130px;
-
-  color: #2d3748;
-
-  /* Only break at spaces, never mid-word */
-  word-break: normal;
-  overflow-wrap: break-word;
-  hyphens: none;
+  width: 40%;
 }
 
-/* Value column (right) — long values like addresses wrap naturally */
+/* Value column — 60% width, breaks long strings if needed */
 .certificate-card td:last-child {
-  color: #2d3748;
-  word-break: normal;
-  overflow-wrap: break-word;
-  hyphens: none;
+  width: 60%;
 }
 
-/* All rows are pure white — no alternating colors */
+/* All rows pure white */
 .certificate-card tr {
   background: #ffffff;
+}
+
+/* ── Responsive: very small phones (< 360px) ── */
+@media (max-width: 360px) {
+  .certificate-card {
+    width: 94%;
+    padding: 8px;
+  }
+
+  .certificate-card td {
+    font-size: 13px;
+    padding: 10px 8px;
+  }
 }
