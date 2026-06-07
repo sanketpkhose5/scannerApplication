@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════
-   Gov Footer
+   Gov Footer — exact match
+   Logo dimensions from inspector: 165×50px
    ═══════════════════════════════════════════════ */
 
 .gov-footer {
@@ -10,48 +11,49 @@
   box-sizing: border-box;
 }
 
-/* ── Shared tile base ─────────────────────────── */
-.footer-logo-tile {
+/* ── Row 1: data.gov.in — centered fixed width ── */
+.footer-logo-tile--full {
+  display: block;
+  width: 165px;
+  height: 50px;
+  margin: 0 auto 8px auto;   /* centered, with gap below */
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+
+/* ── Row 2: india.gov.in + PM INDIA side by side ── */
+.footer-logo-row-2 {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.footer-logo-row-2 .footer-logo-tile {
+  width: 165px;
+  height: 50px;
   background: #ffffff;
   border-radius: 4px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  min-height: 50px;
-  height: 50px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
-/* Full width tile */
-.footer-logo-tile--full {
-  width: 100%;
-}
-
-/* Dark background — PM India */
 .footer-logo-tile--dark {
-  background: #111111;
-}
-
-/* ── Two-column row: india.gov.in + PM INDIA ──── */
-.footer-logo-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-/* Remove bottom margin from tiles inside row-2
-   since row-2 itself has margin-bottom */
-.footer-logo-row-2 .footer-logo-tile {
-  margin-bottom: 0;
+  background: #111111 !important;
 }
 
 /* ── Logo images ──────────────────────────────── */
 .footer-logo-img {
   width: 100%;
-  max-height: 50px;
+  height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -62,7 +64,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2px 0;
   margin: 16px 0 8px;
   row-gap: 6px;
 }
