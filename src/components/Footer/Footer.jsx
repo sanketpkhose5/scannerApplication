@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-import logoDatagov from "../../assets/images/logo-datagov.png";
+import logoDatagov from "../../assets/images/logo-datagov.svg";
 import logoIndiagov from "../../assets/images/logo-indiagov.jpg";
 import logoPmindia from "../../assets/images/logo-pmindia.jpeg";
 import logoMakeinindia from "../../assets/images/logo-makeinindia.png";
