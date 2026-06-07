@@ -4,21 +4,13 @@
 
 .gov-footer {
   background: linear-gradient(180deg, #1d7a8c 0%, #1a5f75 30%, #1a4a6b 100%);
-  padding: 28px 16px 24px;
+  padding: 20px 16px 24px;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* ── Logo grid ────────────────────────────────── */
-.footer-logo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-/* Each tile is a white box */
+/* ── Shared tile base ─────────────────────────── */
 .footer-logo-tile {
   background: #ffffff;
   border-radius: 4px;
@@ -26,21 +18,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 12px;
+  margin-bottom: 8px;
   min-height: 62px;
-  padding: 8px;
 }
 
-/* PM India tile has dark background */
+/* Full width tile */
+.footer-logo-tile--full {
+  width: 100%;
+}
+
+/* Dark background — PM India */
 .footer-logo-tile--dark {
   background: #111111;
 }
 
-/* Logo images fill their tile proportionally */
+/* ── Two-column row: india.gov.in + PM INDIA ──── */
+.footer-logo-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Remove bottom margin from tiles inside row-2
+   since row-2 itself has margin-bottom */
+.footer-logo-row-2 .footer-logo-tile {
+  margin-bottom: 0;
+}
+
+/* ── Logo images ──────────────────────────────── */
 .footer-logo-img {
   width: 100%;
-  height: 100%;
   max-height: 56px;
-  object-fit: contain;  /* keeps aspect ratio, no cropping */
+  object-fit: contain;
   display: block;
 }
 

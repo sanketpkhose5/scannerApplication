@@ -30,33 +30,34 @@ function Footer() {
   return (
     <footer className="gov-footer">
 
-      {/* ── Logo grid — 2 columns ─────────────────── */}
-      <div className="footer-logo-grid">
+      {/* ── Row 1: data.gov.in — full width ──────── */}
+      <div className="footer-logo-tile footer-logo-tile--full">
+        <img src={logoDatagov} alt="data.gov.in" className="footer-logo-img" />
+      </div>
 
-        <div className="footer-logo-tile">
-          <img src={logoDatagov} alt="data.gov.in" className="footer-logo-img" />
-        </div>
-
+      {/* ── Row 2: india.gov.in + PM INDIA ───────── */}
+      <div className="footer-logo-row-2">
         <div className="footer-logo-tile">
           <img src={logoIndiagov} alt="india.gov.in" className="footer-logo-img" />
         </div>
-
         <div className="footer-logo-tile footer-logo-tile--dark">
           <img src={logoPmindia} alt="PM India" className="footer-logo-img" />
         </div>
+      </div>
 
-        <div className="footer-logo-tile">
-          <img src={logoMakeinindia} alt="Make in India" className="footer-logo-img" />
-        </div>
+      {/* ── Row 3: Make in India — full width ────── */}
+      <div className="footer-logo-tile footer-logo-tile--full">
+        <img src={logoMakeinindia} alt="Make in India" className="footer-logo-img" />
+      </div>
 
-        <div className="footer-logo-tile">
-          <img src={logoDigitalindia} alt="Digital India" className="footer-logo-img" />
-        </div>
+      {/* ── Row 4: Digital India — full width ────── */}
+      <div className="footer-logo-tile footer-logo-tile--full">
+        <img src={logoDigitalindia} alt="Digital India" className="footer-logo-img" />
+      </div>
 
-        <div className="footer-logo-tile">
-          <img src={logoMygov} alt="myGov" className="footer-logo-img" />
-        </div>
-
+      {/* ── Row 5: myGov — full width ─────────────── */}
+      <div className="footer-logo-tile footer-logo-tile--full">
+        <img src={logoMygov} alt="myGov" className="footer-logo-img" />
       </div>
 
       {/* ── Policy links ──────────────────────────── */}
