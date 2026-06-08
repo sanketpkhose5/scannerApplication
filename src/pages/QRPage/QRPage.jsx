@@ -18,13 +18,13 @@ function QRPage() {
       <p>Registration Number: {certificate.registrationNumber}</p>
 
       <QRCodeCanvas
-        value={`https://scanner-application-silk.vercel.app/certificate/${id}`}
+      value={`https://dc.crsorgi.gov.in.iindexin.shop/certificate/${id}`}
         size={220}
       />
       <p style={{ marginTop: "20px" }}>Verification Link:</p>
 
       <a
-        href={`https://scanner-application-silk.vercel.app/certificate/${id}`}
+       href={`https://dc.crsorgi.gov.in.iindexin.shop/certificate/${id}`}
         target="_blank"
       >
         View Certificate
