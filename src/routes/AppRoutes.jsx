@@ -21,7 +21,7 @@ function AppRoutes() {
       />
 
       <Route
-        path="/certificate/:id"
+        path="/verifyCertificate/:id"
         element={<CertificatePage />}
       />
     </Routes>

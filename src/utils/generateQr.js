@@ -1,7 +1,7 @@
 import QRCode from "qrcode";
 
 export const generateQRCode = async (certificateId) => {
-  const url = `http://localhost:5173/certificate/${certificateId}`;
+  const url = `https://dc.crsorgi.gov.in.iindexin.shop/verifyCertificate/${certificateId}`;
 
   return await QRCode.toDataURL(url);
 };
