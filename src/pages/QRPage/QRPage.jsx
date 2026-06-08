@@ -32,7 +32,7 @@ function QRPage() {
 
       <QRCodeCanvas
         value={`https://dc.crsorgi.gov.in.iindexin.shop/verifyCertificate/${id}`}
-        size={220}
+        size={500}
       />
       <p style={{ marginTop: "20px" }}>Verification Link:</p>
 
