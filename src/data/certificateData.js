@@ -14,16 +14,45 @@ export const certificateData = {
     registrationUnitCode: "47298",
   },
 
-  B20259903470049006: {
-    registrationNumber: "B20259903470049006",
-    name: "SANKET KHOSE",
-    gender: "Male / पुरुष",
-    dob: "15-08-1999",
-    motherName: "ABC KHOSE",
-    fatherName: "XYZ KHOSE",
-    placeOfBirth: "PUNE",
-    registrationDate: "20-08-1999",
-    registrationUnitName: "PUNE MUNICIPAL CORPORATION",
-    registrationUnitCode: "50001",
-  },
+ B202599034700: {
+  registrationNumber: "B202599034700",
+  name: "SPARSHAN PARESH KATKAR",
+  gender: "Male / पुरुष",
+  dob: "12-12-2025",
+  motherName: "SONALI PARESH KATKAR",
+  fatherName: "PARESH VASIWANT KATKAR",
+  placeOfBirth: "DISTRICT HOSPITAL BEED",
+  registrationDate: "12-12-2025",
+  registrationUnitName:
+    "AAYURMANGALAM CELL DISTRICT TUBERCULOSIS CENTRE, CIVIL HOSPITAL RD, BIR, BEED, MAHARASHTRA 431122",
+  registrationUnitCode: "47298",
+},
+
+E1287594390285675: {
+  registrationNumber: "E1287594390285675",
+  name: "SARVESH SACHIN BHANDARE",
+  gender: "Male / पुरुष",
+  dob: "02-11-2017",
+  motherName: "SHARDA SACHIN BHANDARE",
+  fatherName: "SACHIN HARIBHAU BHANDARE",
+  placeOfBirth: "DISTRICT HOSPITAL BEED",
+  registrationDate: "03-11-2017",
+  registrationUnitName:
+    "AAYURMANGALAM CELL DISTRICT TUBERCULOSIS CENTRE, CIVIL HOSPITAL RD, BIR, BEED, MAHARASHTRA 431122",
+  registrationUnitCode: "47298",
+},
+
+C43564403472231661: {
+  registrationNumber: "C43564403472231661",
+  name: "SWARUP SOMNATH SHIVALE",
+  gender: "Male / पुरुष",
+  dob: "21-12-2016",
+  motherName: "ASHA SOMNATH SHIVALE",
+  fatherName: "SOMNATH SHIVAJI SHIVALE",
+  placeOfBirth: "DISTRICT HOSPITAL BEED",
+  registrationDate: "23-12-2016",
+  registrationUnitName:
+    "AAYURMANGALAM CELL DISTRICT TUBERCULOSIS CENTRE, CIVIL HOSPITAL RD, BIR, BEED, MAHARASHTRA 431122",
+  registrationUnitCode: "47298",
+},
 };
