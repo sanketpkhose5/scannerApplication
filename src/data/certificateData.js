@@ -20,7 +20,7 @@ export const certificateData = {
   gender: "Male / पुरुष",
   dob: "12-12-2025",
   motherName: "SONALI PARESH KATKAR",
-  fatherName: "PARESH VASIWANT KATKAR",
+  fatherName: "PARESH YASHWANT KATKAR",
   placeOfBirth: "DISTRICT HOSPITAL BEED",
   registrationDate: "12-12-2025",
   registrationUnitName:
