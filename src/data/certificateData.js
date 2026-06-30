@@ -73,7 +73,7 @@ export const certificateData = {
     name: "RAM SHIVAJI LOKHANDE",
     gender: "Male / पुरुष",
     dob: "11-11-2020",
-    motherName: "NITA SHIVAJI KOKHANDE",
+    motherName: "NITA SHIVAJI LOKHANDE",
     fatherName: "SHIVAJI VITHOBA LOKHANDE",
     placeOfBirth: "DISTRICT HOSPITAL BEED",
     registrationDate: "11-11-2020",
